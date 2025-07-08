@@ -11,7 +11,6 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Advanced Countries List",
   description: "Explore comprehensive information about countries worldwide",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

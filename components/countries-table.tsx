@@ -8,7 +8,7 @@ interface CountriesTableProps {
 }
 
 export default function CountriesTable({ countries }: CountriesTableProps) {
-  const continentNames = []
+  const continentNames : any[] = []
 
   for (const country of countries) {
     const continentName = country.continent.name

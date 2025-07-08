@@ -1,35 +1,71 @@
-import { render, screen, fireEvent } from "@testing-library/react"
-import ContinentAccordion from "@/components/continent-accordion"
-import type { Country } from "@/types/country"
-
-const mockCountries: Country[] = [
-  {
-    name: "United States",
-    code: "US",
-    capital: "Washington D.C.",
-    continent: { name: "North America" },
-    currency: "USD",
-    languages: [{ name: "English" }],
-    states: [{ name: "California" }],
-    emoji: "🇺🇸",
-  },
-]
+import { render, screen, fireEvent } from "@testing-library/react";
+import ContinentAccordion from "@/components/continent-accordion";
+import type { Country } from "@/types/country";
 
 describe("ContinentAccordion", () => {
-  it("renders continent name and country count", () => {
-    render(<ContinentAccordion continentName="North America" countries={mockCountries} />)
-    expect(screen.getByText("North America")).toBeInTheDocument()
-    expect(screen.getByText("1 countries")).toBeInTheDocument()
-  })
+    const mockCountries: Country[] = [
+        {
+            name: "France",
+            code: "FR",
+            capital: "Paris",
+            continent: { name: "Europe" },
+            currency: "EUR",
+            languages: [{ name: "French" }],
+            states: [],
+            emoji: "🇫🇷",
+        },
+        {
+            name: "Germany",
+            code: "DE",
+            capital: "Berlin",
+            continent: { name: "Europe" },
+            currency: "EUR",
+            languages: [{ name: "German" }],
+            states: [],
+            emoji: "🇩🇪",
+        },
+    ];
 
-  it("expands to show countries when clicked", () => {
-    render(<ContinentAccordion continentName="North America" countries={mockCountries} />)
+    it("renders continent name and country rows", () => {
+        render(
+            <ContinentAccordion
+                continentName="Europe"
+                countries={mockCountries}
+            />
+        );
+        //@ts-ignore
+        expect(screen.getByText("Europe")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("France")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("Germany")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("Paris")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("Berlin")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("🇫🇷")).toBeInTheDocument();
+        //@ts-ignore
+        expect(screen.getByText("🇩🇪")).toBeInTheDocument();
+    });
 
-    const button = screen.getByRole("button")
-    fireEvent.click(button)
-
-    expect(screen.getByText("United States")).toBeInTheDocument()
-    expect(screen.getByText("US")).toBeInTheDocument()
-    expect(screen.getByText("Washington D.C.")).toBeInTheDocument()
-  })
-})
+    it("toggles open/close when header is clicked", () => {
+        render(
+            <ContinentAccordion
+                continentName="Europe"
+                countries={mockCountries}
+            />
+        );
+        const header = screen.getByRole("button");
+        // Initially open
+        //@ts-ignore
+        expect(screen.getByText("France")).toBeInTheDocument();
+        fireEvent.click(header);
+        // After closing, country rows should not be visible
+        expect(screen.queryByText("France")).toBeNull();
+        fireEvent.click(header);
+        // After opening again
+        //@ts-ignore
+        expect(screen.getByText("France")).toBeInTheDocument();
+    });
+});

@@ -12,6 +12,10 @@ A modern web application built with Next.js and TypeScript that displays compreh
 - **Accessible**: Built with accessibility best practices
 - **Fast Performance**: Server-side rendering with Next.js App Router
 
+![image](https://github.com/user-attachments/assets/6157dd50-580d-470f-8a7b-319f7ba9c539)
+
+![Uploading image.png…]()
+
 ## Technology Stack
 
 - **Framework**: Next.js 14 with App Router

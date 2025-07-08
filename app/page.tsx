@@ -10,7 +10,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold bg-gradient-to-r from-orange-600 to-orange-500 bg-clip-text text-transparent mb-4">
-              One Advanced X Countries List
+              One Advanced x Countries Explorer
             </h1>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Explore comprehensive information about countries worldwide, organized by continent

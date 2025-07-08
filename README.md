@@ -1,5 +1,7 @@
 # Countries Explorer
 
+Live demo link : https://chipper-empanada-6a7eb5.netlify.app/
+
 A modern web application built with Next.js and TypeScript that displays comprehensive information about countries worldwide using a GraphQL API.
 
 ## Features
@@ -65,24 +67,6 @@ The test suite includes:
 - Accordion functionality tests
 - Data display logic tests
 
-## Project Structure
-
-\`\`\`
-├── app/
-│   ├── country/[code]/
-│   │   └── page.tsx          # Country details page
-│   ├── globals.css           # Global styles
-│   ├── layout.tsx            # Root layout with Inter font
-│   └── page.tsx              # Home page
-├── components/
-│   ├── continent-accordion.tsx
-│   └── countries-table.tsx
-├── lib/
-│   └── graphql.ts            # GraphQL queries and API functions
-├── types/
-│   └── country.ts            # TypeScript interfaces
-└── __tests__/                # Unit tests
-\`\`\`
 
 ## Design Features
 
@@ -149,7 +133,7 @@ Given more time, I would consider:
 
 ## Deployment
 
-The application is ready for deployment on Vercel, Netlify, or any platform supporting Next.js.
+The application deployed on  Netlify - https://chipper-empanada-6a7eb5.netlify.app/
 
 \`\`\`bash
 npm run build
